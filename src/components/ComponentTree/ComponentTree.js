@@ -1,7 +1,8 @@
 import List from '@material-ui/core/List';
-import widgets from './constants';
 
 import WidgetComponent from './WidgetComponent';
+
+import widgets from './constants';
 
 const ComponentTree = () => {
   return (

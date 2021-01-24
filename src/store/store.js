@@ -5,7 +5,8 @@ import reducer from './reducer';
 import { NEW_COMPONENT } from './constants';
 
 const initialState = {
-  name: NEW_COMPONENT
+  name: NEW_COMPONENT,
+  attributes: []
 };
 
 export const Context = createContext(initialState);

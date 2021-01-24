@@ -1,4 +1,4 @@
-import { UPDATE_NAME } from './actions';
+import { UPDATE_NAME, SAVE } from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         name: action.payload
+      };
+    case SAVE:
+      return {
+        ...state,
+        attributes: action.payload
       };
     default:
       return state;

@@ -16,7 +16,8 @@ import {
   REQUIRED,
   MULTIPLE,
   EXPANDED,
-  SIZE
+  SIZE,
+  EVENT
 } from './constants';
 
 const TextInput = ({ name }) => (
@@ -40,7 +41,7 @@ const RadioInput = ({ name, options }) => (
             {...{ key }}
             value={option}
             control={<Radio />}
-            label={option}
+            label={option.toUpperCase()}
           />
         ))}
     </RadioGroup>
@@ -59,6 +60,7 @@ const inputs = (attribute) => {
     case COLOR:
       return ColorInput;
     case SIZE:
+    case EVENT:
       return RadioInput;
     case DISABLED:
     case SELECTED:

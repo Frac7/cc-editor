@@ -14,9 +14,13 @@ const RightSidebar = () => {
   const [state, dispatch] = useContext(Context);
   const handleNameChange = (event) =>
     dispatch({ type: actions.UPDATE_NAME, payload: event.target.value });
+  const handleComponentSave = (event) => {
+    event.preventDefault();
+    dispatch({ type: actions.SAVE, payload: event.target });
+  };
 
   return (
-    <Sidebar>
+    <Sidebar component="form" onSubmit={handleComponentSave}>
       <Grid container justify="space-evenly">
         <Grid item xs={7}>
           <TextField
@@ -27,7 +31,7 @@ const RightSidebar = () => {
           />
         </Grid>
         <Grid item xs={3}>
-          <IconButton>
+          <IconButton type="submit">
             <SaveIcon color="primary" />
           </IconButton>
         </Grid>

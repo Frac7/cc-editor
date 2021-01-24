@@ -25,7 +25,7 @@ const semanticAttributes = {
     { name: 'element' },
     { name: 'disabled' },
     { name: 'name' },
-    'value'
+    { name: 'value' }
   ],
   [OPTION]: [{ name: 'selected' }, { name: 'value' }, { name: 'element' }],
   [NAVIGATION]: [{ name: 'to' }, { name: 'element' }],
@@ -50,7 +50,7 @@ const availableSemanticAttributes = (semantics) =>
   semanticAttributes[semantics];
 
 const SIZE = 'size';
-const sizes = ['SMALL', 'MEDIUM', 'LARGE'];
+const sizes = ['small', 'medium', 'large'];
 
 const COLOR = 'color';
 
@@ -63,6 +63,8 @@ const graphicAttributes = [
   { name: 'font' },
   { name: 'border' }
 ];
+
+const EVENT = 'event';
 
 const availableEvents = [
   'click',
@@ -99,4 +101,4 @@ const widgets = [
 
 export default widgets;
 
-export { COLOR, SIZE, DISABLED, SELECTED, REQUIRED, MULTIPLE, EXPANDED };
+export { COLOR, SIZE, EVENT, DISABLED, SELECTED, REQUIRED, MULTIPLE, EXPANDED };
