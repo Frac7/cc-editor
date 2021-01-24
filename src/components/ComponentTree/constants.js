@@ -80,12 +80,14 @@ const SIZE = 'size';
 const sizes = ['small', 'medium', 'large'];
 
 const COLOR = 'color';
+const BACKGROUND = 'background';
 
 const graphicAttributes = [
   { name: 'target' },
   { name: 'shadow' },
   { name: 'font' },
   { name: 'border' },
+  { name: 'background' },
   { name: 'color' },
   { name: 'size', options: sizes },
   { name: 'expanded' }
@@ -124,4 +126,15 @@ const widgets = [
 
 export default widgets;
 
-export { COLOR, SIZE, EVENT, DISABLED, SELECTED, REQUIRED, MULTIPLE, EXPANDED };
+export {
+  COLOR,
+  BACKGROUND,
+  SIZE,
+  EVENT,
+  DISABLED,
+  SELECTED,
+  REQUIRED,
+  MULTIPLE,
+  EXPANDED,
+  SEMANTICS
+};

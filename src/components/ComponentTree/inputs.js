@@ -11,13 +11,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import {
   COLOR,
+  BACKGROUND,
   DISABLED,
   SELECTED,
   REQUIRED,
   MULTIPLE,
   EXPANDED,
   SIZE,
-  EVENT
+  EVENT,
+  SEMANTICS
 } from './constants';
 
 const TextInput = ({ name }) => (
@@ -58,9 +60,11 @@ const ColorInput = ({ name }) => (
 const inputs = (attribute) => {
   switch (attribute) {
     case COLOR:
+    case BACKGROUND:
       return ColorInput;
     case SIZE:
     case EVENT:
+    case SEMANTICS:
       return RadioInput;
     case DISABLED:
     case SELECTED:

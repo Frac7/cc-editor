@@ -12,39 +12,46 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 const Preview = () => {
-  const [state, dispatch] = useContext(Context);
+  const [state] = useContext(Context);
   const classes = useStyle();
 
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems="center"
-      className={classes.preview}
-    >
-      <Grid item>
-        <widget-container id="test-1">
-          <widget-semantic
-            value="btn"
-            semantics="single-choice"
-            type="button"
-            element="red button"
-          ></widget-semantic>
-          <widget-semantic
-            semantics="label"
-            text="Large button"
-          ></widget-semantic>
-          <widget-vocal event="click" keyword="press"></widget-vocal>
-          <widget-graphic
-            color="white"
-            background="#d32f2f"
-            size="large"
-            border="none"
-          ></widget-graphic>
-          <widget-graphic font="1rem Helvetica, sans-serif"></widget-graphic>
-        </widget-container>
+    state.current > -1 && (
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className={classes.preview}
+      >
+        <Grid item>
+          <widget-container id={state.widgets[state.current].name}>
+            <widget-semantic
+              semantics={state.widgets[state.current].semantics}
+              element={state.widgets[state.current].element}
+              // name={state.widgets[state.current].name}
+              type={state.widgets[state.current].type}
+              value={state.widgets[state.current].value}
+              text={state.widgets[state.current].text}
+              to={state.widgets[state.current].to}
+            ></widget-semantic>
+            <widget-graphic
+              color={state.widgets[state.current].color}
+              target={state.widgets[state.current].target}
+              background={state.widgets[state.current].background}
+              font={state.widgets[state.current].font}
+              shadow={state.widgets[state.current].shadow}
+              border={state.widgets[state.current].border}
+              size={state.widgets[state.current].size}
+              expanded={state.widgets[state.current].expanded}
+            ></widget-graphic>
+            <widget-vocal
+              event={state.widgets[state.current].event}
+              keyword={state.widgets[state.current].keyword}
+            ></widget-vocal>
+          </widget-container>
+        </Grid>
       </Grid>
-    </Grid>
+    )
   );
 };
 
