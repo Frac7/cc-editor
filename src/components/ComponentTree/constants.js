@@ -83,12 +83,12 @@ const COLOR = 'color';
 
 const graphicAttributes = [
   { name: 'target' },
-  { name: 'expanded' },
-  { name: 'size', options: sizes },
   { name: 'shadow' },
-  { name: 'color' },
   { name: 'font' },
-  { name: 'border' }
+  { name: 'border' },
+  { name: 'color' },
+  { name: 'size', options: sizes },
+  { name: 'expanded' }
 ];
 
 const EVENT = 'event';
