@@ -1,4 +1,10 @@
-import { UPDATE_NAME, SAVE, ADD_WIDGET, REMOVE_WIDGET } from './actions';
+import {
+  UPDATE_NAME,
+  SAVE,
+  ADD_WIDGET,
+  REMOVE_WIDGET,
+  SELECT_WIDGET
+} from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,6 +46,11 @@ const reducer = (state, action) => {
           ...state.left,
           widgets
         }
+      };
+    case SELECT_WIDGET:
+      return {
+        ...state,
+        right: { ...state.left.widgets[action.payload] }
       };
     default:
       return state;

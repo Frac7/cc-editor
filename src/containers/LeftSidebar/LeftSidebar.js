@@ -22,6 +22,11 @@ const LeftSidebar = () => {
     });
   const handleRemoveWidget = (key) => () =>
     dispatch({ type: actions.REMOVE_WIDGET, payload: key });
+  const handleSelection = (key) => () =>
+    dispatch({
+      type: actions.SELECT_WIDGET,
+      payload: key
+    });
 
   return (
     <Sidebar>
@@ -37,7 +42,10 @@ const LeftSidebar = () => {
           </IconButton>
         </Grid>
         <Grid item xs={12}>
-          <WidgetList items={state.left.widgets} {...{ handleRemoveWidget }} />
+          <WidgetList
+            items={state.left.widgets}
+            {...{ handleRemoveWidget, handleSelection }}
+          />
         </Grid>
       </Grid>
     </Sidebar>
