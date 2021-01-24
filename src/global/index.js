@@ -1,3 +1,3 @@
-const NEW_COMPONENT = 'New component';
+const NEW_WIDGET = 'New widget';
 
-export { NEW_COMPONENT };
+export { NEW_WIDGET };

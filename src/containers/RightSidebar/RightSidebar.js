@@ -10,7 +10,7 @@ import Sidebar from '../Sidebar';
 import { ComponentTree } from '../../components';
 
 import { Context, actions } from '../../store';
-import { NEW_COMPONENT } from '../../global';
+import { NEW_WIDGET } from '../../global';
 
 const RightSidebar = () => {
   const [state, dispatch] = useContext(Context);
@@ -20,29 +20,31 @@ const RightSidebar = () => {
   };
 
   return (
-    <Sidebar component="form" onSubmit={handleComponentSave}>
-      <Grid container justify="space-evenly">
-        <Grid item xs={7}>
-          <TextField
-            color="primary"
-            variant="outlined"
-            defaultValue={
-              state.widgets[state.current]
-                ? state.widgets[state.current].name
-                : `${NEW_COMPONENT} #${state.counter}`
-            }
-          />
+    state.current > -1 && (
+      <Sidebar component="form" onSubmit={handleComponentSave}>
+        <Grid container justify="space-evenly">
+          <Grid item xs={7}>
+            <TextField
+              color="primary"
+              variant="outlined"
+              defaultValue={
+                state.widgets[state.current]
+                  ? state.widgets[state.current].name
+                  : `${NEW_WIDGET} #${state.counter}`
+              }
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <IconButton type="submit">
+              <SaveIcon color="primary" />
+            </IconButton>
+          </Grid>
+          <Grid item xs={12}>
+            <ComponentTree />
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          <IconButton type="submit">
-            <SaveIcon color="primary" />
-          </IconButton>
-        </Grid>
-        <Grid item xs={12}>
-          <ComponentTree />
-        </Grid>
-      </Grid>
-    </Sidebar>
+      </Sidebar>
+    )
   );
 };
 

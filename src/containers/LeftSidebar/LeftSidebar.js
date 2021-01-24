@@ -11,14 +11,14 @@ import { WidgetList } from '../../components';
 
 import { Context, actions } from '../../store';
 
-import { NEW_COMPONENT } from '../../global';
+import { NEW_WIDGET } from '../../global';
 
 const LeftSidebar = () => {
   const [state, dispatch] = useContext(Context);
   const handleAddWidget = () =>
     dispatch({
       type: actions.ADD_WIDGET,
-      payload: { name: `${NEW_COMPONENT} #${state.counter}` }
+      payload: { name: `${NEW_WIDGET} #${state.counter}` }
     });
   const handleRemoveWidget = (key) => () =>
     dispatch({ type: actions.REMOVE_WIDGET, payload: key });

@@ -6,6 +6,7 @@ import {
 } from './actions';
 
 const reducer = (state, action) => {
+  console.log(state);
   switch (action.type) {
     case SAVE_WIDGET:
       return {
@@ -21,7 +22,7 @@ const reducer = (state, action) => {
         counter: state.counter + 1,
         widgets: {
           ...state.widgets,
-          [state.counter + 1]: action.payload
+          [state.counter]: action.payload
         }
       };
     case REMOVE_WIDGET:
