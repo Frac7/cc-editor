@@ -6,8 +6,8 @@ import WidgetComponent from './WidgetComponent';
 const ComponentTree = () => {
   return (
     <List>
-      {widgets.map(({ widget }, key) => (
-        <WidgetComponent {...{ widget, key }} />
+      {widgets.map((widget, key) => (
+        <WidgetComponent {...{ ...widget, key }} />
       ))}
     </List>
   );
