@@ -1,5 +1,5 @@
 import List from '@material-ui/core/List';
-import { widgets } from './constants';
+import widgets from './constants';
 
 import WidgetComponent from './WidgetComponent';
 

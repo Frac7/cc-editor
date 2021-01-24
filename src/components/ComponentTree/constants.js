@@ -5,6 +5,12 @@ const LABEL = 'label';
 const SELECTION_CHOICE = 'selection-choice';
 const DATA_ACQUISITION = 'data-acquisition';
 
+const DISABLED = 'disabled';
+const SELECTED = 'selected';
+const REQUIRED = 'required';
+const MULTIPLE = 'multiple';
+const EXPANDED = 'expanded';
+
 const semanticAttributes = {
   SEMANTICS: [
     SINGLE_CHOICE,
@@ -14,35 +20,50 @@ const semanticAttributes = {
     SELECTION_CHOICE,
     DATA_ACQUISITION
   ],
-  [SINGLE_CHOICE]: ['type', 'element', 'disabled', 'name', 'value'],
-  [OPTION]: ['selected', 'value', 'element'],
-  [NAVIGATION]: ['to', 'element'],
-  [LABEL]: ['text', 'element'],
-  [SELECTION_CHOICE]: ['required', 'multiple', 'value', 'element'],
+  [SINGLE_CHOICE]: [
+    { name: 'type' },
+    { name: 'element' },
+    { name: 'disabled' },
+    { name: 'name' },
+    'value'
+  ],
+  [OPTION]: [{ name: 'selected' }, { name: 'value' }, { name: 'element' }],
+  [NAVIGATION]: [{ name: 'to' }, { name: 'element' }],
+  [LABEL]: [{ name: 'text' }, { name: 'element' }],
+  [SELECTION_CHOICE]: [
+    { name: 'required' },
+    { name: 'multiple' },
+    { name: 'value' },
+    { name: 'element' }
+  ],
   [DATA_ACQUISITION]: [
-    'type',
-    'element',
-    'value',
-    'name',
-    'required',
-    'disabled'
+    { name: 'type' },
+    { name: 'element' },
+    { name: 'value' },
+    { name: 'name' },
+    { name: 'required' },
+    { name: 'disabled' }
   ]
 };
 
 const availableSemanticAttributes = (semantics) =>
   semanticAttributes[semantics];
 
+const SIZE = 'size';
+const sizes = ['SMALL', 'MEDIUM', 'LARGE'];
+
+const COLOR = 'color';
+
 const graphicAttributes = [
-  'target',
-  'expanded',
-  'size',
-  'shadow',
-  'color',
-  'font',
-  'border'
+  { name: 'target' },
+  { name: 'expanded' },
+  { name: 'size', options: sizes },
+  { name: 'shadow' },
+  { name: 'color' },
+  { name: 'font' },
+  { name: 'border' }
 ];
 
-const vocalAttributes = ['event', 'keyword'];
 const availableEvents = [
   'click',
   'focus',
@@ -51,6 +72,10 @@ const availableEvents = [
   'change',
   'open',
   'clean'
+];
+const vocalAttributes = [
+  { name: 'event', options: availableEvents },
+  { name: 'keyword' }
 ];
 
 const SEMANTICS = 'SEMANTICS';
@@ -72,4 +97,6 @@ const widgets = [
   }
 ];
 
-export { widgets };
+export default widgets;
+
+export { COLOR, SIZE, DISABLED, SELECTED, REQUIRED, MULTIPLE, EXPANDED };
