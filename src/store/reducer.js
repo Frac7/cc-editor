@@ -1,16 +1,30 @@
-import { UPDATE_NAME, SAVE } from './actions';
+import { UPDATE_NAME, SAVE, ADD_WIDGET } from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_NAME:
       return {
         ...state,
-        name: action.payload
+        right: {
+          ...state.right,
+          name: action.payload
+        }
       };
     case SAVE:
       return {
         ...state,
-        attributes: action.payload
+        right: {
+          ...state.right,
+          attributes: action.payload
+        }
+      };
+    case ADD_WIDGET:
+      return {
+        ...state,
+        left: {
+          ...state.left,
+          widgets: [...state.left.widgets, action.payload]
+        }
       };
     default:
       return state;
