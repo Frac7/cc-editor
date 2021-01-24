@@ -16,7 +16,7 @@ const RightSidebar = () => {
   const [state, dispatch] = useContext(Context);
   const handleComponentSave = (event) => {
     event.preventDefault();
-    dispatch({ type: actions.SAVE, payload: event.target });
+    dispatch({ type: actions.SAVE_WIDGET, payload: event.target });
   };
 
   return (

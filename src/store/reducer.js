@@ -1,8 +1,13 @@
-import { SAVE, ADD_WIDGET, REMOVE_WIDGET, SELECT_WIDGET } from './actions';
+import {
+  SAVE_WIDGET,
+  ADD_WIDGET,
+  REMOVE_WIDGET,
+  SELECT_WIDGET
+} from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SAVE:
+    case SAVE_WIDGET:
       return {
         ...state,
         widgets: {
