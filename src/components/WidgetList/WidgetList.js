@@ -12,8 +12,8 @@ const WidgetList = ({ items, handleRemoveWidget }) => (
       <ListItem button {...{ key }}>
         <ListItemText primary={value.name} />
         <ListItemSecondaryAction>
-          <IconButton>
-            <Delete color="error" onClick={handleRemoveWidget(key)} />
+          <IconButton onClick={handleRemoveWidget(key)}>
+            <Delete color="error" />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
