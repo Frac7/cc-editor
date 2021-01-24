@@ -16,7 +16,13 @@ const RightSidebar = () => {
   const [state, dispatch] = useContext(Context);
   const handleComponentSave = (event) => {
     event.preventDefault();
-    dispatch({ type: actions.SAVE_WIDGET, payload: event.target });
+    dispatch({
+      type: actions.SAVE_WIDGET,
+      payload: [...event.target.elements].reduce(
+        (accumulator, field) => ({ ...accumulator, [field.name]: field.value }),
+        {}
+      )
+    });
   };
 
   return (
@@ -25,6 +31,7 @@ const RightSidebar = () => {
         <Grid container justify="space-evenly">
           <Grid item xs={7}>
             <TextField
+              name="name"
               color="primary"
               variant="outlined"
               defaultValue={
