@@ -6,14 +6,14 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import Delete from '@material-ui/icons/Delete';
 
-const WidgetList = ({ items }) => (
+const WidgetList = ({ items, handleRemoveWidget }) => (
   <List>
-    {items.map((item, key) => (
-      <ListItem button {...{ key }} onClick={() => {}}>
-        <ListItemText primary={item.name} />
+    {Object.entries(items).map(([key, value]) => (
+      <ListItem button {...{ key }}>
+        <ListItemText primary={value.name} />
         <ListItemSecondaryAction>
           <IconButton>
-            <Delete color="error" />
+            <Delete color="error" onClick={handleRemoveWidget(key)} />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>

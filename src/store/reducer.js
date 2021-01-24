@@ -1,4 +1,4 @@
-import { UPDATE_NAME, SAVE, ADD_WIDGET } from './actions';
+import { UPDATE_NAME, SAVE, ADD_WIDGET, REMOVE_WIDGET } from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,7 +23,22 @@ const reducer = (state, action) => {
         ...state,
         left: {
           ...state.left,
-          widgets: [...state.left.widgets, action.payload]
+          counter: state.left.counter + 1,
+          widgets: {
+            ...state.left.widgets,
+            [state.left.counter + 1]: action.payload
+          }
+        }
+      };
+    case REMOVE_WIDGET:
+      const widgets = { ...state.left.widgets };
+      delete widgets[action.payload];
+
+      return {
+        ...state,
+        left: {
+          ...state.left,
+          widgets
         }
       };
     default:

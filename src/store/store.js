@@ -10,6 +10,7 @@ const initialState = {
     attributes: []
   },
   left: {
+    counter: 0,
     widgets: []
   }
 };
