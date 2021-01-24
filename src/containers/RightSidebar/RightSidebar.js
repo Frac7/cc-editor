@@ -8,6 +8,7 @@ import SaveIcon from '@material-ui/icons/Save';
 
 import Sidebar from '../Sidebar';
 import { ComponentTree } from '../../components';
+
 import { Context, actions } from '../../store';
 
 const RightSidebar = () => {
@@ -26,7 +27,7 @@ const RightSidebar = () => {
           <TextField
             color="primary"
             variant="outlined"
-            value={state.name}
+            value={state.right.name}
             onChange={handleNameChange}
           />
         </Grid>
