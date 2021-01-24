@@ -10,11 +10,10 @@ import Sidebar from '../Sidebar';
 import { ComponentTree } from '../../components';
 
 import { Context, actions } from '../../store';
+import { NEW_COMPONENT } from '../../global';
 
 const RightSidebar = () => {
   const [state, dispatch] = useContext(Context);
-  const handleNameChange = (event) =>
-    dispatch({ type: actions.UPDATE_NAME, payload: event.target.value });
   const handleComponentSave = (event) => {
     event.preventDefault();
     dispatch({ type: actions.SAVE, payload: event.target });
@@ -27,8 +26,11 @@ const RightSidebar = () => {
           <TextField
             color="primary"
             variant="outlined"
-            value={state.right.name}
-            onChange={handleNameChange}
+            defaultValue={
+              state.widgets[state.current]
+                ? state.widgets[state.current].name
+                : `${NEW_COMPONENT} #${state.counter}`
+            }
           />
         </Grid>
         <Grid item xs={3}>

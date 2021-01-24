@@ -1,56 +1,36 @@
-import {
-  UPDATE_NAME,
-  SAVE,
-  ADD_WIDGET,
-  REMOVE_WIDGET,
-  SELECT_WIDGET
-} from './actions';
+import { SAVE, ADD_WIDGET, REMOVE_WIDGET, SELECT_WIDGET } from './actions';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case UPDATE_NAME:
-      return {
-        ...state,
-        right: {
-          ...state.right,
-          name: action.payload
-        }
-      };
     case SAVE:
       return {
         ...state,
-        right: {
-          ...state.right,
-          attributes: action.payload
+        widgets: {
+          ...state.widgets,
+          [state.current]: action.payload
         }
       };
     case ADD_WIDGET:
       return {
         ...state,
-        left: {
-          ...state.left,
-          counter: state.left.counter + 1,
-          widgets: {
-            ...state.left.widgets,
-            [state.left.counter + 1]: action.payload
-          }
+        counter: state.counter + 1,
+        widgets: {
+          ...state.widgets,
+          [state.counter + 1]: action.payload
         }
       };
     case REMOVE_WIDGET:
-      const widgets = { ...state.left.widgets };
+      const widgets = { ...state.widgets };
       delete widgets[action.payload];
 
       return {
         ...state,
-        left: {
-          ...state.left,
-          widgets
-        }
+        widgets
       };
     case SELECT_WIDGET:
       return {
         ...state,
-        right: { ...state.left.widgets[action.payload] }
+        current: action.payload
       };
     default:
       return state;

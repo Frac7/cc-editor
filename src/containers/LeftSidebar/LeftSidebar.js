@@ -18,7 +18,7 @@ const LeftSidebar = () => {
   const handleAddWidget = () =>
     dispatch({
       type: actions.ADD_WIDGET,
-      payload: { name: `${NEW_COMPONENT} #${state.left.counter}` }
+      payload: { name: `${NEW_COMPONENT} #${state.counter}` }
     });
   const handleRemoveWidget = (key) => () =>
     dispatch({ type: actions.REMOVE_WIDGET, payload: key });
@@ -43,7 +43,7 @@ const LeftSidebar = () => {
         </Grid>
         <Grid item xs={12}>
           <WidgetList
-            items={state.left.widgets}
+            items={state.widgets}
             {...{ handleRemoveWidget, handleSelection }}
           />
         </Grid>
