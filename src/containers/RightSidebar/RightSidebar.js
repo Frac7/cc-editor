@@ -18,10 +18,15 @@ const RightSidebar = () => {
     event.preventDefault();
     dispatch({
       type: actions.SAVE_WIDGET,
-      payload: [...event.target.elements].reduce(
-        (accumulator, field) => ({ ...accumulator, [field.name]: field.value }),
-        {}
-      )
+      payload: [...event.target.elements]
+        .filter((field) => field.type !== 'radio' || field.checked)
+        .reduce(
+          (accumulator, field) => ({
+            ...accumulator,
+            [field.name]: field.value
+          }),
+          {}
+        )
     });
   };
 

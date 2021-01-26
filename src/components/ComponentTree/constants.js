@@ -12,9 +12,8 @@ const MULTIPLE = 'multiple';
 const EXPANDED = 'expanded';
 
 const SEMANTICS = 'semantics';
-// const SEMANTICS = 'SEMANTICS';
-const GRAPHICS = 'GRAPHICS';
-const VOCAL = 'VOCAL';
+const GRAPHICS = 'graphics';
+const VOCAL = 'vocal';
 
 // const semanticAttributes = {
 //   SEMANTICS: [
@@ -112,8 +111,7 @@ const vocalAttributes = [
 
 const widgets = [
   {
-    // widget: SEMANTICS,
-    widget: 'semantics',
+    widget: SEMANTICS,
     attributes: semanticAttributes
   },
   {
