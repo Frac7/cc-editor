@@ -23,7 +23,7 @@ import {
 } from './constants';
 
 const TextInput = ({ name }) => (
-  <TextField variant="outlined" label={name.toUpperCase()} />
+  <TextField variant="outlined" label={name.toUpperCase()} {...{ name }} />
 );
 
 const BooleanInput = ({ name }) => (
@@ -62,9 +62,9 @@ const inputs = (attribute) => {
     case COLOR:
     case BACKGROUND:
       return ColorInput;
+    case SEMANTICS:
     case SIZE:
     case EVENT:
-    case SEMANTICS:
       return RadioInput;
     case DISABLED:
     case SELECTED:

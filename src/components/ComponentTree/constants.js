@@ -11,7 +11,8 @@ const REQUIRED = 'required';
 const MULTIPLE = 'multiple';
 const EXPANDED = 'expanded';
 
-const SEMANTICS = 'SEMANTICS';
+const SEMANTICS = 'semantics';
+// const SEMANTICS = 'SEMANTICS';
 const GRAPHICS = 'GRAPHICS';
 const VOCAL = 'VOCAL';
 
@@ -54,7 +55,7 @@ const VOCAL = 'VOCAL';
 
 const semanticAttributes = [
   {
-    name: SEMANTICS,
+    name: 'semantics',
     options: [
       SINGLE_CHOICE,
       OPTION,
@@ -111,7 +112,8 @@ const vocalAttributes = [
 
 const widgets = [
   {
-    widget: SEMANTICS,
+    // widget: SEMANTICS,
+    widget: 'semantics',
     attributes: semanticAttributes
   },
   {
