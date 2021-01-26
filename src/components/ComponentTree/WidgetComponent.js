@@ -26,7 +26,7 @@ const WidgetComponent = ({ widget, attributes }) => {
           <ListSubHeader>
             <Grid container justify="space-between" alignItems="center">
               <Grid item>
-                <Typography>{widget}</Typography>
+                <Typography>{widget.toUpperCase()}</Typography>
               </Grid>
               <Grid item>
                 <IconButton onClick={handleOpen}>

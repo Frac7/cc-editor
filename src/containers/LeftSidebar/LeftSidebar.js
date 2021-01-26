@@ -11,17 +11,22 @@ import { WidgetList } from '../../components';
 
 import { Context, actions } from '../../store';
 
-import { NEW_COMPONENT } from '../../global';
+import { NEW_WIDGET } from '../../global';
 
 const LeftSidebar = () => {
   const [state, dispatch] = useContext(Context);
   const handleAddWidget = () =>
     dispatch({
       type: actions.ADD_WIDGET,
-      payload: { name: `${NEW_COMPONENT} #${state.left.counter}` }
+      payload: { name: `${NEW_WIDGET} #${state.counter}` }
     });
   const handleRemoveWidget = (key) => () =>
     dispatch({ type: actions.REMOVE_WIDGET, payload: key });
+  const handleSelection = (key) => () =>
+    dispatch({
+      type: actions.SELECT_WIDGET,
+      payload: key
+    });
 
   return (
     <Sidebar>
@@ -37,7 +42,10 @@ const LeftSidebar = () => {
           </IconButton>
         </Grid>
         <Grid item xs={12}>
-          <WidgetList items={state.left.widgets} {...{ handleRemoveWidget }} />
+          <WidgetList
+            items={state.widgets}
+            {...{ handleRemoveWidget, handleSelection }}
+          />
         </Grid>
       </Grid>
     </Sidebar>

@@ -11,17 +11,19 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import {
   COLOR,
+  BACKGROUND,
   DISABLED,
   SELECTED,
   REQUIRED,
   MULTIPLE,
   EXPANDED,
   SIZE,
-  EVENT
+  EVENT,
+  SEMANTICS
 } from './constants';
 
 const TextInput = ({ name }) => (
-  <TextField variant="outlined" label={name.toUpperCase()} />
+  <TextField variant="outlined" label={name.toUpperCase()} {...{ name }} />
 );
 
 const BooleanInput = ({ name }) => (
@@ -58,7 +60,9 @@ const ColorInput = ({ name }) => (
 const inputs = (attribute) => {
   switch (attribute) {
     case COLOR:
+    case BACKGROUND:
       return ColorInput;
+    case SEMANTICS:
     case SIZE:
     case EVENT:
       return RadioInput;

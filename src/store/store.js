@@ -2,17 +2,10 @@ import { createContext, useReducer } from 'react';
 
 import reducer from './reducer';
 
-import { NEW_COMPONENT } from '../global';
-
 const initialState = {
-  right: {
-    name: `${NEW_COMPONENT} #0`,
-    attributes: []
-  },
-  left: {
-    counter: 0,
-    widgets: []
-  }
+  current: -1,
+  counter: 0,
+  widgets: []
 };
 
 export const Context = createContext(initialState);

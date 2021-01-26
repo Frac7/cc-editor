@@ -11,9 +11,9 @@ const REQUIRED = 'required';
 const MULTIPLE = 'multiple';
 const EXPANDED = 'expanded';
 
-const SEMANTICS = 'SEMANTICS';
-const GRAPHICS = 'GRAPHICS';
-const VOCAL = 'VOCAL';
+const SEMANTICS = 'semantics';
+const GRAPHICS = 'graphics';
+const VOCAL = 'vocal';
 
 // const semanticAttributes = {
 //   SEMANTICS: [
@@ -54,7 +54,7 @@ const VOCAL = 'VOCAL';
 
 const semanticAttributes = [
   {
-    name: SEMANTICS,
+    name: 'semantics',
     options: [
       SINGLE_CHOICE,
       OPTION,
@@ -65,7 +65,7 @@ const semanticAttributes = [
     ]
   },
   { name: 'element' },
-  { name: 'name' },
+  // { name: 'name' },
   { name: 'type' },
   { name: 'value' },
   { name: 'text' },
@@ -80,12 +80,14 @@ const SIZE = 'size';
 const sizes = ['small', 'medium', 'large'];
 
 const COLOR = 'color';
+const BACKGROUND = 'background';
 
 const graphicAttributes = [
   { name: 'target' },
   { name: 'shadow' },
   { name: 'font' },
   { name: 'border' },
+  { name: 'background' },
   { name: 'color' },
   { name: 'size', options: sizes },
   { name: 'expanded' }
@@ -124,4 +126,15 @@ const widgets = [
 
 export default widgets;
 
-export { COLOR, SIZE, EVENT, DISABLED, SELECTED, REQUIRED, MULTIPLE, EXPANDED };
+export {
+  COLOR,
+  BACKGROUND,
+  SIZE,
+  EVENT,
+  DISABLED,
+  SELECTED,
+  REQUIRED,
+  MULTIPLE,
+  EXPANDED,
+  SEMANTICS
+};
