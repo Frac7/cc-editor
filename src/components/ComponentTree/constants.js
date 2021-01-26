@@ -65,7 +65,7 @@ const semanticAttributes = [
     ]
   },
   { name: 'element' },
-  { name: 'name' },
+  // { name: 'name' },
   { name: 'type' },
   { name: 'value' },
   { name: 'text' },

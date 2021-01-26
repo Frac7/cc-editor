@@ -23,7 +23,8 @@ const RightSidebar = () => {
         .reduce(
           (accumulator, field) => ({
             ...accumulator,
-            [field.name]: field.value
+            [field.name]:
+              field.type === 'checkbox' ? field.checked : field.value
           }),
           {}
         )
