@@ -39,7 +39,7 @@ const Preview = () => {
     expanded,
     event,
     keyword
-  } = useMemo(() => state.widgets[state.current], [state]);
+  } = useMemo(() => state.widgets[state.current] || {}, [state]);
 
   if (
     state.current < 0 ||
