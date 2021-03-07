@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,7 +17,35 @@ const Preview = () => {
   const [state] = useContext(Context);
   const classes = useStyle();
 
-  if (state.current < 0 || !state.widgets[state.current].semantics) {
+  const {
+    name,
+    semantics,
+    element,
+    type,
+    value,
+    text,
+    to,
+    disabled,
+    required,
+    selected,
+    multiple,
+    color,
+    target,
+    background,
+    font,
+    shadow,
+    border,
+    size,
+    expanded,
+    event,
+    keyword
+  } = useMemo(() => state.widgets[state.current], [state]);
+
+  if (
+    state.current < 0 ||
+    !state.widgets[state.current] ||
+    !state.widgets[state.current].semantics
+  ) {
     return null;
   }
 
@@ -29,33 +57,33 @@ const Preview = () => {
       className={classes.preview}
     >
       <Grid item>
-        <widget-container id={state.widgets[state.current].name}>
+        <widget-container id={name}>
           <widget-semantic
-            semantics={state.widgets[state.current].semantics}
-            element={getAttribute(state.widgets[state.current].element)}
-            // name={getAttribute(state.widgets[state.current].name)}
-            type={getAttribute(state.widgets[state.current].type)}
-            value={getAttribute(state.widgets[state.current].value)}
-            text={getAttribute(state.widgets[state.current].text)}
-            to={getAttribute(state.widgets[state.current].to)}
-            disabled={state.widgets[state.current].disabled || undefined}
-            required={state.widgets[state.current].required || undefined}
-            selected={state.widgets[state.current].selected || undefined}
-            multiple={state.widgets[state.current].multiple || undefined}
+            semantics={semantics}
+            element={getAttribute(element)}
+            // name={getAttribute(name)}
+            type={getAttribute(type)}
+            value={getAttribute(value)}
+            text={getAttribute(text)}
+            to={getAttribute(to)}
+            disabled={disabled || undefined}
+            required={required || undefined}
+            selected={selected || undefined}
+            multiple={multiple || undefined}
           ></widget-semantic>
           <widget-graphic
-            color={getAttribute(state.widgets[state.current].color)}
-            target={getAttribute(state.widgets[state.current].target)}
-            background={getAttribute(state.widgets[state.current].background)}
-            font={getAttribute(state.widgets[state.current].font)}
-            shadow={getAttribute(state.widgets[state.current].shadow)}
-            border={getAttribute(state.widgets[state.current].border)}
-            size={state.widgets[state.current].size}
-            expanded={state.widgets[state.current].expanded || undefined}
+            color={getAttribute(color)}
+            target={getAttribute(target)}
+            background={getAttribute(background)}
+            font={getAttribute(font)}
+            shadow={getAttribute(shadow)}
+            border={getAttribute(border)}
+            size={size}
+            expanded={expanded || undefined}
           ></widget-graphic>
           <widget-vocal
-            event={state.widgets[state.current].event}
-            keyword={getAttribute(state.widgets[state.current].keyword)}
+            event={event}
+            keyword={getAttribute(keyword)}
           ></widget-vocal>
         </widget-container>
       </Grid>
